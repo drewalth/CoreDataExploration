@@ -43,6 +43,29 @@ struct ItemListView: View {
                             Label("Add Item", systemImage: "plus")
                         }
                     }
+                }.sheet(isPresented: $viewModel.formVisible) {
+                    NavigationStack {
+                        Form {
+                            TextField("Title", text: $viewModel.newItemTitle)
+                            TextField("Subtitle", text: $viewModel.newItemSubtitle)
+                        }.navigationTitle("New Item")
+                            .toolbar {
+                                ToolbarItem(placement: .cancellationAction) {
+                                    Button {
+                                        viewModel.formVisible = false
+                                    } label: {
+                                        Text("Cancel")
+                                    }
+                                }
+                                ToolbarItem(placement: .confirmationAction) {
+                                    Button {
+                                        viewModel.createNewItem()
+                                    } label: {
+                                        Text("Save")
+                                    }.disabled(!viewModel.formValid)
+                                }
+                            }
+                    }
                 }
         }
     }

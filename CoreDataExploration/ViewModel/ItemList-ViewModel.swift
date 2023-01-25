@@ -16,6 +16,12 @@ extension ItemListView {
         @AppStorage("initial-load") var initialLoad = true
         @Published var results: [ItemEntity] = []
         @Published var formVisible = false
+        @Published var newItemTitle = ""
+        @Published var newItemSubtitle = ""
+
+        var formValid: Bool {
+            !newItemTitle.isEmpty && !newItemSubtitle.isEmpty
+        }
 
         init() {
             getInitialData()
@@ -29,21 +35,34 @@ extension ItemListView {
         func loadItems() {
             let request = NSFetchRequest<ItemEntity>(entityName: "ItemEntity")
             do {
-                let result = try coreDataManager.container.viewContext.fetch(request)
-                print(result)
-                results = result
+                results = try coreDataManager.container.viewContext.fetch(request)
             } catch {
                 print(error)
             }
         }
 
-        func createNewItem(title _: String, subtitle _: String) {}
+        func createNewItem() {
+            let newItem = ItemEntity(context: coreDataManager.container.viewContext)
+            newItem.id = UUID()
+            newItem.title = newItemTitle
+            newItem.subtitle = newItemSubtitle
+            NetworkManager.instance.post("/items", input: newItem, output: ItemEntity.self) { result in
+                do {
+                    _ = try result.get()
+                    self.formVisible = false
+                    try self.coreDataManager.saveContext()
+                    self.loadItems()
+                } catch {
+                    print(error)
+                    self.coreDataManager.container.viewContext.reset()
+                }
+            }
+        }
 
         func refreshItems() {
             NetworkManager.instance.get("/items", output: [ItemEntity].self) { result in
                 do {
-                    let value = try result.get()
-                    print(value)
+                    _ = try result.get()
                     try self.coreDataManager.saveContext()
                     self.initialLoad = false
                     self.loadItems()

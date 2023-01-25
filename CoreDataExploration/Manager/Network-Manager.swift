@@ -12,18 +12,34 @@ typealias NetworkError = AFError
 
 class NetworkManager {
     static let instance = NetworkManager()
-
     private let baseUrl = "http://localhost:3000"
+    private let decoder = CoreDataJSONDecorder().decoder
 
     func get<Output: Decodable>(_ url: String,
                                 output _: Output.Type,
                                 completion: @escaping (Result<Output, NetworkError>) -> Void)
     {
-        let decoder = CoreDataJSONDecorder().decoder
-
         AF.request(baseUrl + url).validate().responseDecodable(of: Output.self, decoder: decoder) { response in
 
             completion(response.result)
         }
+    }
+
+    func post<Input: Encodable, Output: Decodable>(_ url: String,
+                                                   input: Input,
+                                                   output _: Output.Type,
+                                                   completion: @escaping (Result<Output, NetworkError>) -> Void)
+    {
+        AF.request(baseUrl + url,
+                   method: .post,
+                   parameters: input,
+                   encoder: .json,
+                   headers: [
+                       .init(name: "Content-Type", value: "application/json"),
+                   ])
+                   .validate()
+                   .responseDecodable(of: Output.self, decoder: decoder) { response in
+                       completion(response.result)
+                   }
     }
 }

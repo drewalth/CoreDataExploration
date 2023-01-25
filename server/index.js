@@ -12,42 +12,23 @@ const writeDatabaseFile = (items, callback = undefined) => {
 
 }
 
-app.post("/items", (req, res) => {
-    const data = req.body.JSON
-    console.log(data);
-    const items = require("./database.json")
+let database = require("./database.json")
 
-    const newItems = [...items, {
-        id: uuid(),
-        title: "new item!!",
-        subtitle: "subtitle"
-    }]
+app.use(require("express").json())
+
+app.post("/items", (req, res) => {
+    const newItem = req.body
+    const newItems = [...database, newItem]
     
     writeDatabaseFile(newItems)
-})
 
-app.delete("/items", (req, res) => {
-    const id = req.query["id"]
-    console.log(id);
-    res.send(id)
-})
+    database = newItems
 
-app.put("/items", (req, res) => {
-    const data = req.body.JSON
-    console.log(data);
-    const items = require("./database.json")
-
-    const index = items.findIndex(({id}) => data["id"])
-
-    Object.assign(items[index], data)
-
-    writeDatabaseFile(items)
-
-    res.send(items[index])
+    res.send(newItem)
 })
 
 app.get("/items", (req, res) => {
-    res.send(require("./database.json"))
+    res.send(database)
 })
 
 app.listen(3000, () => {
