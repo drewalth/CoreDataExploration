@@ -1,6 +1,6 @@
 # CoreDataExploration
 
-A small proof-of-concept for using CoreData and the Codable protocol.
+A proof-of-concept for using CoreData and the Codable protocol to help work with JSON from a remote API.
 
 ## System Requirements
 
@@ -10,5 +10,8 @@ A small proof-of-concept for using CoreData and the Codable protocol.
 ## Setup
 
 ```bash
-brew install swiftformat
+# dummy api
+cd server/
+npm install
+node index.js
 ```

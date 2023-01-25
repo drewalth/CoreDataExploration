@@ -10,18 +10,40 @@ import SwiftUI
 struct ItemListView: View {
     @StateObject var viewModel = ViewModel()
     var body: some View {
-        List {
-            Section {
-                Button("Refresh") {
-                    viewModel.refreshItems()
+        NavigationStack {
+            List {
+                ForEach(viewModel.results, id: \.id) { item in
+                    VStack(alignment: .leading) {
+                        Text(item.title ?? "-").font(.title3)
+                        Text(item.subtitle ?? "-").font(.caption).foregroundColor(.secondary)
+                    }
+                }.onDelete { value in
+                    print(value)
                 }
-            }
-            ForEach(viewModel.results, id: \.id) { item in
-                VStack {
-                    Text(item.title ?? "-").font(.title3)
-                    Text(item.subtitle ?? "-").font(.caption).foregroundColor(.secondary)
+                Section {
+                    Button {
+                        viewModel.refreshItems()
+                    } label: {
+                        HStack {
+                            Label("", systemImage: "arrow.clockwise").labelStyle(.iconOnly)
+                            Text("Refresh")
+                        }
+                    }.listRowBackground(Color.clear)
+                        .buttonStyle(.borderedProminent)
                 }
-            }
+            }.navigationTitle("Items")
+                .toolbar {
+                    #if os(iOS)
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            EditButton()
+                        }
+                    #endif
+                    ToolbarItem {
+                        Button(action: viewModel.toggleForm) {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                    }
+                }
         }
     }
 }

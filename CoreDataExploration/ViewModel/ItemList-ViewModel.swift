@@ -15,10 +15,15 @@ extension ItemListView {
 
         @AppStorage("initial-load") var initialLoad = true
         @Published var results: [ItemEntity] = []
+        @Published var formVisible = false
 
         init() {
             getInitialData()
             loadItems()
+        }
+
+        func toggleForm() {
+            formVisible.toggle()
         }
 
         func loadItems() {
@@ -31,6 +36,8 @@ extension ItemListView {
                 print(error)
             }
         }
+
+        func createNewItem(title _: String, subtitle _: String) {}
 
         func refreshItems() {
             NetworkManager.instance.get("/items", output: [ItemEntity].self) { result in
