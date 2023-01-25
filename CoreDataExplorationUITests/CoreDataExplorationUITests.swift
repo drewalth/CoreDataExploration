@@ -8,7 +8,6 @@
 import XCTest
 
 final class CoreDataExplorationUITests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 

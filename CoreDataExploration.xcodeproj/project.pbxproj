@@ -16,6 +16,17 @@
 		0073946E297C999500241896 /* CoreDataExplorationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073946D297C999500241896 /* CoreDataExplorationTests.swift */; };
 		00739478297C999500241896 /* CoreDataExplorationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00739477297C999500241896 /* CoreDataExplorationUITests.swift */; };
 		0073947A297C999500241896 /* CoreDataExplorationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00739479297C999500241896 /* CoreDataExplorationUITestsLaunchTests.swift */; };
+		00CF173D297F52A000A8FBFF /* ItemEntity-Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF173C297F52A000A8FBFF /* ItemEntity-Model.swift */; };
+		00CF1740297F53B600A8FBFF /* CodingUserKeyInfo-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF173F297F53B600A8FBFF /* CodingUserKeyInfo-Extension.swift */; };
+		00CF1743297F548A00A8FBFF /* CoreDataJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF1742297F548A00A8FBFF /* CoreDataJSONDecoder.swift */; };
+		00CF1745297F57B600A8FBFF /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF1744297F57B600A8FBFF /* CoreDataRepository.swift */; };
+		00CF1748297F5E3600A8FBFF /* Network-Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF1747297F5E3600A8FBFF /* Network-Manager.swift */; };
+		00CF174B297F5E6500A8FBFF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00CF174A297F5E6500A8FBFF /* Alamofire */; };
+		00CF174E297F608C00A8FBFF /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF174D297F608C00A8FBFF /* ItemListView.swift */; };
+		00CF1751297F60AE00A8FBFF /* ItemList-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF1750297F60AE00A8FBFF /* ItemList-ViewModel.swift */; };
+		00F51A9F2980B70000756C2C /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 00F51A9E2980B70000756C2C /* package.json */; };
+		00F51AA12980B75E00756C2C /* commitlint.config.js in Resources */ = {isa = PBXBuildFile; fileRef = 00F51AA02980B75E00756C2C /* commitlint.config.js */; };
+		00F51AA32980B81200756C2C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00F51AA22980B81200756C2C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +60,16 @@
 		00739473297C999500241896 /* CoreDataExplorationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataExplorationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00739477297C999500241896 /* CoreDataExplorationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExplorationUITests.swift; sourceTree = "<group>"; };
 		00739479297C999500241896 /* CoreDataExplorationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExplorationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		00CF173C297F52A000A8FBFF /* ItemEntity-Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemEntity-Model.swift"; sourceTree = "<group>"; };
+		00CF173F297F53B600A8FBFF /* CodingUserKeyInfo-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingUserKeyInfo-Extension.swift"; sourceTree = "<group>"; };
+		00CF1742297F548A00A8FBFF /* CoreDataJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataJSONDecoder.swift; sourceTree = "<group>"; };
+		00CF1744297F57B600A8FBFF /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		00CF1747297F5E3600A8FBFF /* Network-Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network-Manager.swift"; sourceTree = "<group>"; };
+		00CF174D297F608C00A8FBFF /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		00CF1750297F60AE00A8FBFF /* ItemList-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemList-ViewModel.swift"; sourceTree = "<group>"; };
+		00F51A9E2980B70000756C2C /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		00F51AA02980B75E00756C2C /* commitlint.config.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = commitlint.config.js; sourceTree = "<group>"; };
+		00F51AA22980B81200756C2C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CF174B297F5E6500A8FBFF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +101,9 @@
 		0073944A297C999300241896 = {
 			isa = PBXGroup;
 			children = (
+				00F51AA22980B81200756C2C /* README.md */,
+				00F51AA02980B75E00756C2C /* commitlint.config.js */,
+				00F51A9E2980B70000756C2C /* package.json */,
 				00739455297C999300241896 /* CoreDataExploration */,
 				0073946C297C999500241896 /* CoreDataExplorationTests */,
 				00739476297C999500241896 /* CoreDataExplorationUITests */,
@@ -99,8 +124,15 @@
 		00739455297C999300241896 /* CoreDataExploration */ = {
 			isa = PBXGroup;
 			children = (
+				00CF174F297F609A00A8FBFF /* ViewModel */,
+				00CF174C297F606300A8FBFF /* View */,
+				00CF1746297F5E1D00A8FBFF /* Manager */,
+				00CF1741297F542E00A8FBFF /* Helper */,
+				00CF173E297F539C00A8FBFF /* Extension */,
+				00CF173B297F528F00A8FBFF /* Model */,
 				00739456297C999300241896 /* CoreDataExplorationApp.swift */,
 				00739458297C999300241896 /* Persistence.swift */,
+				00CF1744297F57B600A8FBFF /* CoreDataRepository.swift */,
 				0073945D297C999300241896 /* ContentView.swift */,
 				0073945F297C999500241896 /* Assets.xcassets */,
 				00739461297C999500241896 /* CoreDataExploration.entitlements */,
@@ -135,6 +167,54 @@
 			path = CoreDataExplorationUITests;
 			sourceTree = "<group>";
 		};
+		00CF173B297F528F00A8FBFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00CF173C297F52A000A8FBFF /* ItemEntity-Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00CF173E297F539C00A8FBFF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				00CF173F297F53B600A8FBFF /* CodingUserKeyInfo-Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		00CF1741297F542E00A8FBFF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				00CF1742297F548A00A8FBFF /* CoreDataJSONDecoder.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		00CF1746297F5E1D00A8FBFF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				00CF1747297F5E3600A8FBFF /* Network-Manager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		00CF174C297F606300A8FBFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00CF174D297F608C00A8FBFF /* ItemListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00CF174F297F609A00A8FBFF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00CF1750297F60AE00A8FBFF /* ItemList-ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +231,9 @@
 			dependencies = (
 			);
 			name = CoreDataExploration;
+			packageProductDependencies = (
+				00CF174A297F5E6500A8FBFF /* Alamofire */,
+			);
 			productName = CoreDataExploration;
 			productReference = 00739453297C999300241896 /* CoreDataExploration.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +306,9 @@
 				Base,
 			);
 			mainGroup = 0073944A297C999300241896;
+			packageReferences = (
+				00CF1749297F5E6500A8FBFF /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 00739454297C999300241896 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,6 +327,9 @@
 			files = (
 				00739464297C999500241896 /* Preview Assets.xcassets in Resources */,
 				00739460297C999500241896 /* Assets.xcassets in Resources */,
+				00F51AA32980B81200756C2C /* README.md in Resources */,
+				00F51A9F2980B70000756C2C /* package.json in Resources */,
+				00F51AA12980B75E00756C2C /* commitlint.config.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,10 +354,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CF1740297F53B600A8FBFF /* CodingUserKeyInfo-Extension.swift in Sources */,
+				00CF173D297F52A000A8FBFF /* ItemEntity-Model.swift in Sources */,
 				00739457297C999300241896 /* CoreDataExplorationApp.swift in Sources */,
 				0073945C297C999300241896 /* CoreDataExploration.xcdatamodeld in Sources */,
+				00CF1743297F548A00A8FBFF /* CoreDataJSONDecoder.swift in Sources */,
+				00CF174E297F608C00A8FBFF /* ItemListView.swift in Sources */,
+				00CF1751297F60AE00A8FBFF /* ItemList-ViewModel.swift in Sources */,
 				0073945E297C999300241896 /* ContentView.swift in Sources */,
+				00CF1745297F57B600A8FBFF /* CoreDataRepository.swift in Sources */,
 				00739459297C999300241896 /* Persistence.swift in Sources */,
+				00CF1748297F5E3600A8FBFF /* Network-Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +541,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.drewalth.CoreDataExploration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -483,7 +581,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.drewalth.CoreDataExploration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -620,6 +720,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00CF1749297F5E6500A8FBFF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00CF174A297F5E6500A8FBFF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00CF1749297F5E6500A8FBFF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0073945A297C999300241896 /* CoreDataExploration.xcdatamodeld */ = {
