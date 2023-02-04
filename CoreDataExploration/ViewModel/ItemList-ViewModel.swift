@@ -12,6 +12,7 @@ import SwiftUI
 extension ItemListView {
     @MainActor class ViewModel: ObservableObject {
         private let coreDataManager = PersistenceController.shared
+        private let repo = CoreDataRepository<ItemEntity>(context: PersistenceController.shared.container.viewContext)
 
         @AppStorage("initial-load") var initialLoad = true
         @Published var results: [ItemEntity] = []
@@ -25,7 +26,6 @@ extension ItemListView {
 
         init() {
             getInitialData()
-            loadItems()
         }
 
         func toggleForm() {
@@ -33,29 +33,34 @@ extension ItemListView {
         }
 
         func loadItems() {
-            let request = NSFetchRequest<ItemEntity>(entityName: "ItemEntity")
             do {
-                results = try coreDataManager.container.viewContext.fetch(request)
+                results.removeAll()
+                results = try repo.fetch().get()
             } catch {
                 print(error)
             }
         }
 
         func createNewItem() {
-            let newItem = ItemEntity(context: coreDataManager.container.viewContext)
-            newItem.id = UUID()
-            newItem.title = newItemTitle
-            newItem.subtitle = newItemSubtitle
-            NetworkManager.instance.post("/items", input: newItem, output: ItemEntity.self) { result in
-                do {
-                    _ = try result.get()
-                    self.formVisible = false
-                    try self.coreDataManager.saveContext()
-                    self.loadItems()
-                } catch {
-                    print(error)
-                    self.coreDataManager.container.viewContext.reset()
+            let result = repo.create { item in
+                item.id = UUID()
+                item.title = self.newItemTitle
+                item.subtitle = self.newItemSubtitle
+            }
+
+            do {
+                let newItem = try result.get()
+                NetworkManager.instance.post("/items", input: newItem, output: NetworkManager.ResponseMessage.self) { result in
+                    do {
+                        _ = try result.get()
+                        self.formVisible = false
+                        self.loadItems()
+                    } catch {
+                        print(error)
+                    }
                 }
+            } catch {
+                print(error)
             }
         }
 
@@ -69,6 +74,19 @@ extension ItemListView {
                 } catch {
                     print(error)
                 }
+            }
+        }
+
+        func delete(at offsets: IndexSet) {
+            guard let index = offsets.first
+            else { return }
+            let el = results[index]
+            let result = repo.delete(el)
+            switch result {
+            case .success:
+                loadItems()
+            case let .failure(error):
+                print(error)
             }
         }
 

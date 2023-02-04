@@ -13,13 +13,13 @@ struct ItemListView: View {
         NavigationStack {
             List {
                 ForEach(viewModel.results, id: \.id) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.title ?? "-").font(.title3)
-                        Text(item.subtitle ?? "-").font(.caption).foregroundColor(.secondary)
+                    NavigationLink(destination: ItemDetailView(item: item)) {
+                        VStack(alignment: .leading) {
+                            Text(item.title ?? "-").font(.title3)
+                            Text(item.subtitle ?? "-").font(.caption).foregroundColor(.secondary)
+                        }
                     }
-                }.onDelete { value in
-                    print(value)
-                }
+                }.onDelete(perform: viewModel.delete)
                 Section {
                     Button {
                         viewModel.refreshItems()
@@ -31,6 +31,8 @@ struct ItemListView: View {
                     }.listRowBackground(Color.clear)
                         .buttonStyle(.borderedProminent)
                 }
+            }.onAppear {
+                viewModel.loadItems()
             }.navigationTitle("Items")
                 .toolbar {
                     #if os(iOS)

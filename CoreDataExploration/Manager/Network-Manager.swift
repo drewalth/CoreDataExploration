@@ -10,10 +10,18 @@ import Foundation
 
 typealias NetworkError = AFError
 
+enum RequestStatus {
+    case loading, success, failure
+}
+
 class NetworkManager {
     static let instance = NetworkManager()
     private let baseUrl = "http://localhost:3000"
     private let decoder = CoreDataJSONDecorder().decoder
+
+    struct ResponseMessage: Decodable {
+        let message: String
+    }
 
     func get<Output: Decodable>(_ url: String,
                                 output _: Output.Type,

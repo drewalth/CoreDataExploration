@@ -26,6 +26,8 @@
 		00F51A9F2980B70000756C2C /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 00F51A9E2980B70000756C2C /* package.json */; };
 		00F51AA12980B75E00756C2C /* commitlint.config.js in Resources */ = {isa = PBXBuildFile; fileRef = 00F51AA02980B75E00756C2C /* commitlint.config.js */; };
 		00F51AA32980B81200756C2C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00F51AA22980B81200756C2C /* README.md */; };
+		A15FA9C0298EF0A700B0311B /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15FA9BF298EF0A700B0311B /* CoreDataRepository.swift */; };
+		A15FA9C2298EF9BE00B0311B /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15FA9C1298EF9BE00B0311B /* ItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		00F51A9E2980B70000756C2C /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
 		00F51AA02980B75E00756C2C /* commitlint.config.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = commitlint.config.js; sourceTree = "<group>"; };
 		00F51AA22980B81200756C2C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A15FA9BF298EF0A700B0311B /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		A15FA9C1298EF9BE00B0311B /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 				00CF173E297F539C00A8FBFF /* Extension */,
 				00CF173B297F528F00A8FBFF /* Model */,
 				00739456297C999300241896 /* CoreDataExplorationApp.swift */,
+				A15FA9BF298EF0A700B0311B /* CoreDataRepository.swift */,
 				00739458297C999300241896 /* Persistence.swift */,
 				0073945D297C999300241896 /* ContentView.swift */,
 				0073945F297C999500241896 /* Assets.xcassets */,
@@ -200,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				00CF174D297F608C00A8FBFF /* ItemListView.swift */,
+				A15FA9C1298EF9BE00B0311B /* ItemDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15FA9C2298EF9BE00B0311B /* ItemDetailView.swift in Sources */,
 				00CF1740297F53B600A8FBFF /* CodingUserKeyInfo-Extension.swift in Sources */,
 				00CF173D297F52A000A8FBFF /* ItemEntity-Model.swift in Sources */,
 				00739457297C999300241896 /* CoreDataExplorationApp.swift in Sources */,
@@ -359,6 +366,7 @@
 				00CF174E297F608C00A8FBFF /* ItemListView.swift in Sources */,
 				00CF1751297F60AE00A8FBFF /* ItemList-ViewModel.swift in Sources */,
 				0073945E297C999300241896 /* ContentView.swift in Sources */,
+				A15FA9C0298EF0A700B0311B /* CoreDataRepository.swift in Sources */,
 				00739459297C999300241896 /* Persistence.swift in Sources */,
 				00CF1748297F5E3600A8FBFF /* Network-Manager.swift in Sources */,
 			);

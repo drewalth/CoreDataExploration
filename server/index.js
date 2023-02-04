@@ -24,11 +24,18 @@ app.post("/items", (req, res) => {
 
     database = newItems
 
-    res.send(newItem)
+    res.send(JSON.stringify({message: "Item created"}))
 })
 
 app.get("/items", (req, res) => {
-    res.send(database)
+
+    let result = database
+
+    if (req.query["id"]) {
+        result = result.find(el => el.id === req.query["id"])
+    }
+
+    res.send(result)
 })
 
 app.listen(3000, () => {
