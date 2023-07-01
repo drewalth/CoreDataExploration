@@ -11,7 +11,7 @@ import Foundation
 class ItemEntity: NSManagedObject, Codable {
     required convenience init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
-            throw CoreDataJSONDecorder.DecoderConfigurationError.missingManagedObjectContext
+            throw CoreDataJSONDecoder.DecoderConfigurationError.missingManagedObjectContext
         }
 
         self.init(context: context)

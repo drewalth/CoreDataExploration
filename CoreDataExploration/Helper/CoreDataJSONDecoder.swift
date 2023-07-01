@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CoreDataJSONDecorder {
+struct CoreDataJSONDecoder {
     let decoder: JSONDecoder
 
     init() {

@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 /// Helper for working with CoreData entities
-class CoreDataRepository<Entity: NSManagedObject> {
+struct CoreDataRepository<Entity: NSManagedObject> {
     private let context: NSManagedObjectContext
 
     init(context: NSManagedObjectContext) {

@@ -14,10 +14,10 @@ enum RequestStatus {
     case loading, success, failure
 }
 
-class NetworkManager {
+struct NetworkManager {
     static let instance = NetworkManager()
     private let baseUrl = "http://localhost:3000"
-    private let decoder = CoreDataJSONDecorder().decoder
+    private let decoder = CoreDataJSONDecoder().decoder
 
     struct ResponseMessage: Decodable {
         let message: String
