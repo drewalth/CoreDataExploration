@@ -50,7 +50,7 @@ extension ItemListView {
 
             do {
                 let newItem = try result.get()
-                NetworkManager.instance.post("/items", input: newItem, output: NetworkManager.ResponseMessage.self) { result in
+                NetworkManager().post("/items", input: newItem, output: NetworkManager.ResponseMessage.self) { result in
                     do {
                         _ = try result.get()
                         self.formVisible = false
@@ -65,7 +65,7 @@ extension ItemListView {
         }
 
         func refreshItems() {
-            NetworkManager.instance.get("/items", output: [ItemEntity].self) { result in
+            NetworkManager().get("/items", output: [ItemEntity].self) { result in
                 do {
                     _ = try result.get()
                     try self.coreDataManager.saveContext()

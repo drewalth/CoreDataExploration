@@ -15,7 +15,6 @@ enum RequestStatus {
 }
 
 struct NetworkManager {
-    static let instance = NetworkManager()
     private let baseUrl = "http://localhost:3000"
     private let decoder = CoreDataJSONDecoder().decoder
 

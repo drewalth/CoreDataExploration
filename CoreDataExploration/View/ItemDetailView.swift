@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemDetailView: View {
     private let repo = CoreDataRepository<ItemEntity>(context: PersistenceController.shared.container.viewContext)
-    private let network = NetworkManager.instance
+    private let network = NetworkManager()
     var item: ItemEntity
 
     @State var requestStatus: RequestStatus = .success
